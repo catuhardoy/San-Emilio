@@ -6,7 +6,7 @@ const { DATABASE_URL, SERVER_PORT } = process.env
 const PORT = SERVER_PORT || 3000
 
 mongoose
-    .connect(DATABASE_URL)
+    .connect(DATABASE_URL, { useNewUrlParser: true }) //Conexion a base de datos
     .then( () => {
         console.log("Conectado a base de datos")
         app.listen(PORT, () =>{
