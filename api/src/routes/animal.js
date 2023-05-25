@@ -1,7 +1,15 @@
-const { Routes } = require("express")
+const { Router } = require("express")
+const {
+    getAlls,
+    postAnimal
+} = require("../handlers/animalHandlers/animalHandler")
+
+const animalRouter = Router();
 
 
-const animalRouter = Routes();
+
+animalRouter.get("/", getAlls)
+animalRouter.post("/", postAnimal)
 
 
-animalRouter.get()
+module.exports = animalRouter
