@@ -4,17 +4,17 @@ const schema = mongoose.Schema({
     weight: { // Peso del animal
         type: Number,        
     },
-    rodeo: { // Vaca, Toro, Vaquillona, Novillo, Ternero, Ternera
+    cow_round_up: { // Vaca, Toro, Vaquillona, Novillo, Ternero, Ternera
         type: String
     },
-    raza: { // Colorado, Negro, Blanco_Negro
+    race: { // Colorado, Negro, Blanco_Negro
         type: String
     },
     date_of_birth: { // Año de nacimiento si es propio, null si es comprado
         type: Date,
         default: null
     },
-    caravana: { // Si es propio (false), si es comprado (true)
+    caravan: { // Si es propio (false), si es comprado (true)
         type: Boolean,
         default: false
     },
