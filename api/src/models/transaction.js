@@ -11,7 +11,7 @@ const schema = mongoose.Schema({
         type: String,
         default: null
     },
-    prize: { //precio de la compra o la venta
+    price: { //precio de la compra o la venta
         type: Number,
     },
     quantity: { //cantidades //COMPRA Y VENTA
@@ -20,7 +20,7 @@ const schema = mongoose.Schema({
     weight: { //PESO en ambos casos puede entrar
         type: Number,
     },
-    rodeo: { //COMPRA O VENTA a que rodeo pertenece (tipos de rodeo)
+    cow_round_up: { //COMPRA O VENTA a que rodeo pertenece (tipos de rodeo)
         type: Number,
     }
 });
