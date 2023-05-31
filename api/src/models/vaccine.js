@@ -4,8 +4,11 @@ const schema = mongoose.Schema({
     name: { // Nombre de la vacuna
         type: String
     },
-    date:{
-        type: Date
+    month:{
+        type: Date  // hace date o string?
+    },
+    frequency: {
+        type: String
     },
     cow_round_up:{
         type: String
