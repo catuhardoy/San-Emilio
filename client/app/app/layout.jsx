@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 
-import Navigation from '../app/Components/Navigation'
-
+import Navigation from './Components/Navigation'
+import Header from './Components/Header'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,9 +18,12 @@ export default function RootLayout({ children }) {
        </head>
         <body className={inter.className}>
           <Navigation />
+          
           {children}
           </body>
       </html>
     
   )
 }
+
+// el layout es el contenedor de todas las paginas

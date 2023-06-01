@@ -3,22 +3,6 @@
     src: url('../Fonts/RobotoCondensed-Bold.ttf');
    }
 
-
-.header{
-    /* border: 2px solid rgba(128, 143, 133, 0.5); */
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    justify-content: space-between;
-    display: flex;
-    position: fixed
-    /* background-color:  rgba(128, 143, 133, 0.5);; */
-}
-.div{
-    margin: 0;
-    padding: 0;
-}
-
 .navigation{
     /* border: 2px solid rgba(128, 143, 133, 0.5); */
     width: 100%;
@@ -29,14 +13,17 @@
     font-family: 'RobotoCondensed';
     color: black;
     display: flex;
-    /* justify-content: center; */
+    justify-content: flex;
     align-items: center;
     text-decoration: none;  
+    
 }
 
 .navigation a {
     text-decoration: none;
-    color: black
+    color: black;
+    margin-right: 30px;
+    text-align: justify;
   }
 
 .links{
