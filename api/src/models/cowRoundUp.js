@@ -5,7 +5,8 @@ const schema = mongoose.Schema({
         type: String,        
     },
     quantity: { // Cantidad
-        type: Number
+        type: Number,
+        default: 0
     }
     
 })

@@ -5,10 +5,12 @@ const schema = mongoose.Schema({
         type: Number,        
     },
     cow_round_up: { // Vaca, Toro, Vaquillona, Novillo, Ternero, Ternera
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "cowRoundUp",
     },
     race: { // Colorado, Negro, Blanco_Negro
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "race",
     },
     date_of_birth: { // Año de nacimiento si es propio, null si es comprado
         type: Date,

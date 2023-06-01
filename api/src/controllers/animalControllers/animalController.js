@@ -6,16 +6,22 @@ const getAnimals = async () => {
    return animals
 }
 
+const getById = async (_id) => {
+    const animal = await Animal.findById(_id)
+    if(!animal) throw error (`No se encontro al animal con el Id = ${_id}`)
+
+    return animal
+}
+
 
 // Para crear un animal (Vaca, toro, vaquillona)
-const createAnimal = async (weight, rodeo, raza, date_of_birth, caravana, origin, quantity) => {
+const createAnimal = async (weight, cow_round_up, race, date_of_birth, caravan, quantity) => {
     const animal = new Animal({
         weight,
-        rodeo,
-        raza,
+        cow_round_up,
+        race,
         date_of_birth,
-        caravana,
-        origin,
+        caravan,
         quantity
     })
 
@@ -23,7 +29,40 @@ const createAnimal = async (weight, rodeo, raza, date_of_birth, caravana, origin
     return animal
 }
 
+const updateAnimalId = async (_id, weight, cow_round_up, race, date_of_birth, caravan, quantity) => {
+    const animal = await Animal.findById(_id)
+    if(!animal) throw error (`No se encontro al animal con el Id = ${_id}`)
+
+    animal.quantity = animal.quantity - quantity;
+
+    const animales = await Animal.find({cow_round_up: cow_round_up, race: race })
+console.log(animales)
+    if(!animales) {
+        const newAnimal = await createAnimal({
+            weight, cow_round_up, race, date_of_birth, caravan, quantity
+        })
+        return  newAnimal
+    }
+    
+    animales.quantity = animales.quantity + quantity
+    return animales
+}
+
+const deleteAnimalId = async (_id, quantity) => {
+    const animal = await Animal.findById(_id)
+    if(!animal) throw new Error ("No existe el animal")
+    if(animal.quantity < quantity) throw new Error("La cantidad es mayor a la que se tiene")
+    animal.quantity = animal.quantity - quantity
+
+    await animal.save()
+
+    return animal
+}
+
 module.exports = {
     getAnimals,
-    createAnimal
+    getById,
+    createAnimal,
+    updateAnimalId,
+    deleteAnimalId
 }
