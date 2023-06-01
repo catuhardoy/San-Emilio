@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styles from './Navigation.module.css'
-import logo from "../Images/logo-vaca.jpeg"
+import logo_vaca from "../Images/logo-vaca.jpeg"
+import Image from 'next/image'
 
 
 // const inter = Inter({ subsets: ['latin'] })
@@ -14,6 +15,10 @@ const links = [{
   {
     label: 'TRANSACCIONES',  
     route: '/transacciones'
+  },
+  {
+    label: 'GRAFICOS',  
+    route: '/graficos'
   },]
 
   export default function Navigation() {
@@ -22,7 +27,7 @@ const links = [{
         <header className={styles.header}>
           <div className={styles.navigation}>
             
-            <img src={logo} alt = "logo" className={styles.logo} />
+            <Image src= {logo_vaca} width={80} height={70}/>
             
             
         <nav>
@@ -35,7 +40,9 @@ const links = [{
               </li>
             ))}
             
+            
             </ul>
+            
           </nav>
         </div>
       </header>
