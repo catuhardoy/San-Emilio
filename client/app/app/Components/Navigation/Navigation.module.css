@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'RobotoCondensed';
-    src: url('../Fonts/RobotoCondensed-Bold.ttf');
+    src: url('../../Fonts/RobotoCondensed-Bold.ttf');
    }
 
 .navigation{
@@ -9,13 +9,15 @@
     height: 70px;
     margin: 0;
     padding: 0;
+    z-index: 1000;
+    display: flex;
     background-color:  rgba(148, 155, 160, 0.5);;
     font-family: 'RobotoCondensed';
     color: black;
-    display: flex;
-    justify-content: flex;
+    justify-content: space-around;
     align-items: center;
     text-decoration: none;  
+    /* position: absolute */
     
 }
 
@@ -41,8 +43,27 @@
    
 }
  .logo{
-   margin-right: 300px;
-   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-right: 300px;
   
  }
 
+ .rodeos_menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f0f0f0;
+    padding: 10px;
+    list-style: none;
+    margin: 0;
+    display: none;
+  }
+  
+  .rodeos_link:hover .rodeos-menu {
+    display: block;
+  }
+  
+  
+  
+  

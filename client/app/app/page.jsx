@@ -1,5 +1,6 @@
 import styles from './page.module.css'
-import Header from './Components/Header'
+import Header from './Components/HeaderCows/HeaderCows'
+import HeaderCows from './Components/HeaderCows/HeaderCows'
 
 // async function getCowRoundUp(){
 //   const res = await fetch("https://reqres.in.api/users");
@@ -13,7 +14,7 @@ export default function Home() {
   return (
    
    <div>
-   <Header/>
+   <HeaderCows/>
    </div>
   )
 }

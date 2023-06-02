@@ -1,7 +1,7 @@
-import { Inter } from 'next/font/google'
 
-import Navigation from './Components/Navigation'
-import Header from './Components/Header'
+import { Inter } from 'next/font/google'
+import Navigation from './Components/Navigation/Navigation'
+import Header from './Components/HeaderCows/HeaderCows'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {

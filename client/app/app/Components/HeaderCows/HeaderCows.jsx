@@ -1,8 +1,10 @@
-import styles from "../Components/Header.module.css"
+import styles from "../../Components/HeaderCows/HeaderCows.module.css"
 import Image from "next/image";
-import logo_vaca from "../Images/cow-icon.png"
+import logo_vaca from "../../Images/cow-icon.png"
 
-export default function Header () {
+
+
+export default function HeaderCows () {
   return (
 
     <header>
@@ -28,6 +30,20 @@ export default function Header () {
             <Image  src= {logo_vaca} width={50} height={50}/>
             <button className={styles.button}>NOVILLOS</button>
             <p>180</p>
+          </div>
+          <div className={styles.container_section}>
+          <section className={styles.container_nacimientos}>
+            <span> Nacimientos</span>
+          <div className={styles.image_container}>
+          <Image  src= {logo_vaca} width={30} height={30} />
+          </div>
+          </section>
+          <section className={styles.container_muertes}>
+          <span> Muertes</span>
+          <div className={styles.image_container}>
+          <Image  src= {logo_vaca} width={30} height={30} />
+          </div>
+          </section>
           </div>
         </div>
         {/* <h3 className={styles.container_nacimientos}>Nacimientos</h3> 
