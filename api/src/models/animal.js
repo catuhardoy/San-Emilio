@@ -17,8 +17,8 @@ const schema = mongoose.Schema({
         default: null
     },
     caravan: { // Si es propio (false), si es comprado (true)
-        type: Boolean,
-        default: false
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Caravan",
     },
     origin: { // Null si es propio, nombre de identificacion de compra
         type: String,
