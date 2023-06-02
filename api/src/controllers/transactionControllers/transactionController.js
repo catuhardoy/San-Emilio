@@ -7,15 +7,15 @@ const getTransactions = async ()=> {
     return transactions;
 };
 
-const createTransaction = async(type, auction, origin, price, quantity, weight, cow_round_up)=> {
+const createTransaction = async(typeTransaction, auction, origin, price, quantity, weight, cowRoundUp)=> {
     const transaction = new Transaction({
-        type,
+        typeTransaction,
         auction,
         origin,
         price,
         quantity,
         weight,
-        cow_round_up  
+        cowRoundUp  
     })
     await transaction.save();
     return transaction;

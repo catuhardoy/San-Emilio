@@ -1,8 +1,9 @@
 const mongoose = require("mongoose")
 
 const schema = mongoose.Schema({
-    type: { //TIPO DE TRANSACCION COMPRA O VENTA 
-        type: String,
+    typeTransaction: { //TIPO DE TRANSACCION COMPRA O VENTA 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "TypeTransaction"
     },
     auction: { // Remate //En caso de COMPRA
         type: String,        
@@ -20,8 +21,9 @@ const schema = mongoose.Schema({
     weight: { //PESO en ambos casos puede entrar
         type: Number,
     },
-    cow_round_up: { //COMPRA O VENTA a que rodeo pertenece (tipos de rodeo)
-        type: Number,
+    cowRoundUp: { //COMPRA O VENTA a que rodeo pertenece (tipos de rodeo)
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "cowRoundUp",
     }
 });
 
