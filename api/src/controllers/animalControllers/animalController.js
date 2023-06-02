@@ -1,8 +1,12 @@
 const Animal = require("../../models/animal")
+const cowRoundUp = require("../../models/cowRoundUp")
+const Race = require("../../models/race")
 
 // Para obtener todos los animales
 const getAnimals = async () => {
    const animals = await Animal.find()
+                                .populate(["race", "cowRoundUp"])
+                                .exec()
    return animals
 }
 
@@ -15,10 +19,10 @@ const getById = async (_id) => {
 
 
 // Para crear un animal (Vaca, toro, vaquillona)
-const createAnimal = async (weight, cow_round_up, race, date_of_birth, caravan, quantity) => {
+const createAnimal = async (weight, cowRoundUp, race, date_of_birth, caravan, quantity) => {
     const animal = new Animal({
         weight,
-        cow_round_up,
+        cowRoundUp,
         race,
         date_of_birth,
         caravan,
@@ -36,7 +40,6 @@ const updateAnimalId = async (_id, weight, cow_round_up, race, date_of_birth, ca
     animal.quantity = animal.quantity - quantity;
 
     const animales = await Animal.find({cow_round_up: cow_round_up, race: race })
-console.log(animales)
     if(!animales) {
         const newAnimal = await createAnimal({
             weight, cow_round_up, race, date_of_birth, caravan, quantity
@@ -58,6 +61,14 @@ const deleteAnimalId = async (_id, quantity) => {
 
     return animal
 }
+
+// const deleteAnimalId = async (_id, quantity) => {
+//     const animal = await Animal.findById(_id)
+
+//     await Animal.deleteOne({_id: _id})
+
+//     return animal
+// }
 
 module.exports = {
     getAnimals,

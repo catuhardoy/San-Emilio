@@ -29,11 +29,13 @@ const getId = async (req, res) => {
 
 
 const postAnimal = async (req, res ) => {
-    const { weight, cow_round_up, race, date_of_birth, caravan, quantity } = req.body;
+    const { weight, cowRoundUp, race, date_of_birth, caravan, quantity } = req.body;
+    console.log(weight, cowRoundUp, race, date_of_birth, caravan, quantity)
     try {
-        const animal = await createAnimal( weight, cow_round_up, race, date_of_birth, caravan, quantity);
+        const animal = await createAnimal( weight, cowRoundUp, race, date_of_birth, caravan, quantity);
         return res.status(200).json(animal)
     } catch (error) {
+        console.log(error)
         return res.status(400).json({error: error.message})
     }
 }
