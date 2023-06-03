@@ -5,89 +5,93 @@ import logo_vaca from '../../Images/logo-vaca.jpeg'
 import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 
-
-
- 
-
-// const inter = Inter({ subsets: ['latin'] })
-const links = [{
-    label: 'HOME',  
-    route: '/'
-  },{
-    label: 'RODEOS',  
-    route: '/rodeos'
-  },
-  {
-    label: 'TRANSACCIONES',  
-    route: '/transacciones'
-  },
-  {
-    label: 'GRAFICOS',  
-    route: '/graficos'
-  },]
-
-
-
   export default function Navigation() {
 
-    // let arrayRodeos = [
-    //   "Vacas",
-    //   "Toros",
-    //   "Novillos",
-    //   "Vaquillonas",
-    //   "Terneros"
-
-    // ]
+    let arrayRodeos = [
+      "VACAS",
+      "TOROS",
+      "NOVILLOS",
+      "VAQUILLONAS"
+    ]
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const menuRef = useRef(null);
 
     const toggleMenu = () => {
       setIsMenuOpen(!isMenuOpen);
     };
   
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+          setIsMenuOpen(false); // Cierra el menú de especialidades cuando se hace clic fuera de él
+        }
+      };
+  
+      document.addEventListener("mousedown", handleClickOutside);
+  
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, []);
+
+    const [selectedMenu, setSelectedMenu] = useState(null);
+
+    const handleMenuClick = () => {
+      setIsMenuOpen(false);
+    };
 
     return(
-       
-          <div className={styles.navigation}>
-            <p>SAN EMILIO</p>
+       <>
+          <div className={styles.container__navbar}>
+            
+            <div className={styles.container__logo}>
+              <Link href="/">
+                 SAN EMILIO<Image src={logo_vaca} alt="Logo Vaca" />
+              </Link>
+            </div>
 
-        <nav>
-          <ul className={styles.links}>
-            {links.map((label, route)=>(
-              <li key={route}>
-                <Link href={label.route} >
-                  {links.label}
-                  </Link> 
-              </li>
-            ))} 
-               <li className={rodeos_m}>
-          <button onClick={toggleMenu}>RODEOS</button>
-          {isMenuOpen && (
-            <ul className="rodeos-menu">
-              <li>Rodeo 1</li>
-              <li>Rodeo 2</li>
-              <li>Rodeo 3</li>
+            <ul>
+            <button
+            ref={menuRef}
+            className={styles.button__ul}
+            onClick={toggleMenu}
+            style={
+              isMenuOpen
+                ? {
+                    backgroundColor: "#639cc7",
+                    color: "#fff",
+                    height: "100%",
+                    borderRadius: "0",
+                    border: "none",
+                  }
+                : {}
+            }
+            // onClick={toggleMenu}
+          >
+            RODEOS
+          </button>
+
+              <Link href="/transacciones/">TRANSACCIONES</Link>
+              <Link href="/graficos/">GRAFICOS</Link>
+
             </ul>
-          )}
-        </li>
-            </ul> 
-          </nav>
+           
+          
         </div>
-       
-     
+
+    {isMenuOpen && (
+    <div className={styles.container__rodeos} ref={menuRef}>
+    <ul>
+      {arrayRodeos.map((rodeo) => (
+        <li key={rodeo} style={{ listStyleType: "none" }}>
+          <Link href="/rodeos/" onClick={handleMenuClick}>{rodeo}</Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+</>
     )
    }
-
-
-//    {isMenuOpen && (
-//     <div className={styles.container__especialitys} ref={menuRef}>
-//       <ul>
-//         {arrayRodeos.map((rodeo) => (
-//           <li key={rodeo} style={{ listStyleType: "none" }}>
-//             <Link to={`/rodeos/${rodeo}`}>{rodeo}</Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   )}
-// </>

@@ -14,7 +14,7 @@ export default function Home() {
   return (
    
    <div>
-   <HeaderCows/>
+   {/* <HeaderCows/> */}
    </div>
   )
 }
