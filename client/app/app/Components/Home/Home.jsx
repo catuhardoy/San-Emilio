@@ -1,4 +1,4 @@
-import styles from "../../Components/HeaderCows/HeaderCows.module.css"
+import styles from "./Home.module.css"
 import Image from "next/image";
 import logo_vaca from "../../Images/cow-icon.png"
 

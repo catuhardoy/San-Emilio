@@ -1,7 +1,6 @@
 
 import { Inter } from 'next/font/google'
 import Navigation from './Components/Navigation/Navigation'
-import Header from './Components/HeaderCows/HeaderCows'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,7 +17,6 @@ export default function RootLayout({ children }) {
        </head>
         <body className={inter.className}>
           <Navigation />
-          
           {children}
           </body>
       </html>
@@ -26,4 +24,4 @@ export default function RootLayout({ children }) {
   )
 }
 
-// el layout es el contenedor de todas las paginas
+// el layout es el contenedor de todas las paginas osea que NAVIGATION se va a ver en todas las vistas

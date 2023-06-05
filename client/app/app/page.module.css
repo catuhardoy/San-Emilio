@@ -1,12 +1,9 @@
 .container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 300px;
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Ajusta la altura según tus necesidades */
 
 }
-
-.body{
-  margin: 0;
-  padding: 0
+.content {
+  margin-top: 140px; /* Ajusta el valor según sea necesario */
 }
