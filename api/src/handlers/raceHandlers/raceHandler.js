@@ -1,7 +1,8 @@
 const {
   getRaces,
   createRace,
-  getRaceById
+  getRaceById,
+  deleteRace
 } = require("../../controllers/raceController/raceControler");
 
 const getAllRaces = async (req, res) => {
@@ -33,8 +34,21 @@ const postRace = async (req, res) => {
   }
 };
 
+
+const raceDelete = async (req, res) => {
+  let { id } = req.body;
+  try {
+    const deletedRace = await deleteRace(id);
+    return res.status(200).json(deletedRace);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+};
+
+
 module.exports = {
   getAllRaces,
   postRace,
-  getRaceId
+  getRaceId,
+  raceDelete
 }
