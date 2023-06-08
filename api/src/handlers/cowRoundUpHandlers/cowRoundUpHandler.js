@@ -13,9 +13,9 @@ const {
   };
   
   const postCowRound = async (req, res) => {
-    const {name, quantity} = req.body;
+    const {name} = req.body;
     try {
-      const cowRound = await createCowRoundUp(name, quantity);
+      const cowRound = await createCowRoundUp(name);
       res.status(200).json(cowRound)
     } catch (error) {
       return res.status(400).json({error: error.message})

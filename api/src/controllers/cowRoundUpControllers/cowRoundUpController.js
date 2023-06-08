@@ -5,8 +5,8 @@ const getCowRoundUp = async( )=>{
     return cows;
 };
 
-const createCowRoundUp = async (name, quantity) => {
-    const cow = new cowRoundUp({name, quantity});
+const createCowRoundUp = async (name) => {
+    const cow = new cowRoundUp({name});
     await cow.save();
     return cow;
 }
