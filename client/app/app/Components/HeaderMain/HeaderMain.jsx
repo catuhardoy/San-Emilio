@@ -1,6 +1,7 @@
 import styles from "./HeaderMain.module.css"
 import Image from "next/image";
 import logo_vaca from "../../Images/cow-icon.png"
+import BirthDeathForm from "../BirthDeathForm/BirthDeathForm";
 
 export default function HeaderMain () {
     return (
