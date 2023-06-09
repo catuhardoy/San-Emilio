@@ -65,8 +65,8 @@ export default function BirthDeathForm(){
            <MenuItem value="">
               <em>Seleccionar</em>
               </MenuItem>
-            <MenuItem value="ternero">Ternero</MenuItem>
-            <MenuItem value="ternera">Ternera</MenuItem>
+            <MenuItem value="macho">Macho</MenuItem>
+            <MenuItem value="hembra">Hembra</MenuItem>
             
             
           </Select>
