@@ -1,6 +1,7 @@
 const Animal = require("../../models/animal")
 const cowRoundUp = require("../../models/cowRoundUp")
 const Race = require("../../models/race")
+const Caravan = require("../../models/caravan")
 
 // Para obtener todos los animales
 const getAnimals = async () => {
@@ -20,12 +21,23 @@ const getById = async (_id) => {
 
 // Para crear un animal (Vaca, toro, vaquillona)
 const createAnimal = async (weight, cowRoundUp, race, date_of_birth, caravan, quantity) => {
+
+    if(!cowRoundUp || !race ) throw Error("No se envio la raza o en rodeo")
+
+    const newCaravan = new Caravan({
+        caravan
+    });
+
+    await newCaravan.save()
+
+
+
     const animal = new Animal({
         weight,
         cowRoundUp,
         race,
         date_of_birth,
-        caravan,
+        caravan:newCaravan,
         quantity
     })
 
