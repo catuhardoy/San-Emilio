@@ -6,7 +6,14 @@ const schema = mongoose.Schema({
     },
     isOwn:{
         type: Boolean
+    },
+    color: {
+        type: String,
+    },
+    date: {
+        type: Date,
     }
+
    
 })
 
