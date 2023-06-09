@@ -24,6 +24,8 @@ const cowRoundUpById = async (_id) => {
       throw new Error(`Error al obtener el rodeo: ${error.message}`);
     }
   };
+  // y si ponemos : getCowRoundUpById?
+  
   
 
 module.exports = {
