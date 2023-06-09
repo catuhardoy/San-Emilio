@@ -7,6 +7,9 @@ export const GET_RACE = 'GET_RACE';
 export const GET_RACE_BY_ID = 'GET_RACE_BY_ID';
 export const POST_RACE = 'POST_RACE';
 export const DELETE_RACE = 'DELETE_RACE';
+export const CREATE_ANIMAL = 'CREATE_ANIMAL';
+export const DELETE_ANIMAL = 'DELETE_ANIMAL';
+// export const PUT_ANIMAL=
 
 
 export function getAnimals(){
@@ -19,6 +22,30 @@ export function getAnimals(){
         })
     }
 }
+
+export const createAnimal=(animalData) => async (dispatch)=> {
+    
+    const json = await axios.post('/animal',animalData);
+    dispatch({
+        type: POST_ANIMAL,
+        payload: json.data
+        });
+    }    
+// post y put son funciones asincronas siempre   
+
+export function deleteAnimal(id){
+    return async function (dispatch){
+        const json = await axios.delete(`/animal/${id}`);
+    
+        return dispatch({
+            type: DELETE_ANIMAL,
+            payload: id
+        })
+    }
+};
+
+
+
 
 export function getCowRoundUp(){
     return async function (dispatch){
