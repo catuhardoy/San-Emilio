@@ -1,6 +1,7 @@
 const {
    getCowRoundUp,
-   createCowRoundUp
+   createCowRoundUp,
+   cowRoundUpById
   } = require("../../controllers/cowRoundUpControllers/cowRoundUpController");
   
   const getCowRound = async (req, res) => {
@@ -13,17 +14,28 @@ const {
   };
   
   const postCowRound = async (req, res) => {
-    const {name, quantity} = req.body;
+    const {name} = req.body;
     try {
-      const cowRound = await createCowRoundUp(name, quantity);
+      const cowRound = await createCowRoundUp(name);
       res.status(200).json(cowRound)
     } catch (error) {
       return res.status(400).json({error: error.message})
     }
   };
+
+  const getRoundUpById = async (req, res) => {
+    const { id } = req.params
+    try {
+        const cowRoundUp = await cowRoundUpById(id);
+        return res.status(200).json(cowRoundUp)
+    } catch (error) {
+        return res.status(400).json({error: error.message})
+    }
+};
   
   module.exports = {
       getCowRound,
-      postCowRound
+      postCowRound,
+      getRoundUpById
     
   }

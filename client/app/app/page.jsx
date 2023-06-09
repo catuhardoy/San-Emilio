@@ -1,5 +1,6 @@
 import styles from './page.module.css'
 import HeaderMain from './Components/HeaderMain/HeaderMain'
+import BirthDeathForm from './Components/BirthDeathForm/BirthDeathForm'
 
 
 // async function getCowRoundUp(){
@@ -17,7 +18,9 @@ export default function Home() {
     
     <div className={styles.content}>
     <HeaderMain/>
+  
     </div>
+    
 
    </div>
   )

@@ -4,10 +4,7 @@ const schema = mongoose.Schema({
     name: { // Nombre del rodeo
         type: String,        
     },
-    quantity: { // Cantidad
-        type: Number,
-        default: 0
-    }
+    
     
 })
 
