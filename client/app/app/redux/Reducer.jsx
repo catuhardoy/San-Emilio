@@ -19,11 +19,23 @@ const reducer = (state = initialState, action) => {
               ...state,
                 animal: action.payload
             };
+
+        case CREATE_ANIMAL:
+            return {
+                ...state,
+                animal: action.payload
+            } ;   
+        case DELETE_ANIMAL:
+            return {
+                ...state,
+                animal: action.payload
+            } ;   
+
 // hace falta un DELETE en ANIMALS para las muertes y ventas
-// hace falta un POST en ANIMALS para las compras y nacimientos
+
 
 //traigo todos los rodeos
-        case GET_COW_ROUND_UP:
+    case GET_COW_ROUND_UP:
             return {
               ...state,
                 cowRoundUp: action.payload
