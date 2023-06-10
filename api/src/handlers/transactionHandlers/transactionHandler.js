@@ -1,5 +1,6 @@
 const {
     getTransactions,
+    getTransactionsById,
     createTransaction
 
 } = require("../../controllers/transactionControllers/transactionController");
@@ -9,6 +10,16 @@ const getAllTrans = async (req, res) => {
         const transaction = await getTransactions();
         return res.status(200).json(transaction)
     } catch (error) {
+        return res.status(400).json({error: error.message})
+    }
+}
+
+const getById = async () => {
+    const { id } = body.params
+    try{
+        const transaction = getTransactionsById(id)
+        return res.status(200).json(transaction)
+    } catch(error){
         return res.status(400).json({error: error.message})
     }
 }
@@ -26,5 +37,6 @@ const postTransaction = async (req, res ) => {
 
 module.exports = {
     getAllTrans,
+    getById,
     postTransaction
 }

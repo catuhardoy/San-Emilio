@@ -7,6 +7,13 @@ const getTransactions = async ()=> {
     return transactions;
 };
 
+const getTransactionsById = async (id) => {
+    const getTrans = await Transaction.findById(id)
+    if(!getTrans) throw Error(getTrans)
+
+    return getTrans
+}
+
 const createTransaction = async(typeTransaction, auction, origin, price, quantity, weight, cowRoundUp)=> {
     const transaction = new Transaction({
         typeTransaction,
@@ -24,5 +31,6 @@ const createTransaction = async(typeTransaction, auction, origin, price, quantit
 
 module.exports = {
     getTransactions,
-    createTransaction
+    createTransaction,
+    getTransactionsById
 }
