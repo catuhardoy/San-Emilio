@@ -1,5 +1,4 @@
 const typeTransaction = require("../../models/typeTransaction");
-const typeTransaction = require("../../models/typeTransaction");
 
 const getTypes = async( )=>{
     const types = await typeTransaction.find();
