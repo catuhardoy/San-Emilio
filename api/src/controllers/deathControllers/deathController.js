@@ -9,6 +9,15 @@ const getDeaths = async()=> {
     return deaths;
 };
 
+const createDeaths = async(cowRoundUp, quantity)=> {
+     if(!cowRoundUp) throw Error("No cowRoundUp selected");
+
+     const death = new Deaths({cowRoundUp, quantity})
+     await death.save();
+     return death;
+};
+
 module.exports = {
     getDeaths,
+    createDeaths,
 }
