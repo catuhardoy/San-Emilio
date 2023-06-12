@@ -1,4 +1,6 @@
-const {getDeaths} = require("../../controllers/deathControllers/deathController")
+const {getDeaths, 
+createDeaths,
+} = require("../../controllers/deathControllers/deathController")
 
 const getAllDeaths = async (req, res) => {
     try {
@@ -10,6 +12,19 @@ const getAllDeaths = async (req, res) => {
     }
 };
 
+const postDeaths = async (req,res) => {
+    const {cowRoundUp, quantity} = req.body;
+    try {
+        const death = await createDeaths(cowRoundUp, quantity);
+        return res.status(200).json(death)
+    } catch (error) {
+        
+        return res.status(400).json({error: error.message})
+    }
+};
+
+
 module.exports ={
     getAllDeaths,
+    postDeaths,
 }
